@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="30" status="DEBUG" verbose="false">
+
+    <!-- monitorInterval: automatic reload every 30sec on changes -->
+    <!-- status: log4j2 internal logging (not for the app) -->
+    <!-- Don't forget to set system property
+	-DLog4jContextSelector=org.apache.logging.log4j.core.async.AsyncLoggerContextSelector
+     	to make all loggers asynchronous.
+    -->
+
+    <Properties>
+     	<!-- ENVIRONMENT SPECIFIC -->
+		<Property name="env">dev</Property>
+		<Property name="logFilePath">\\esb\ESB_Dev\Logs\RealTime</Property>
+
+    </Properties>
+
+	<!-- =========================== -->
+
+    <Appenders>
+
+        <!-- the standard-console-appender -->
+        <Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %p %c{1.} [%t] %m%n" />
+		</Console>
+
+
+		<!-- ##### Rolling File List ##### -->
+		<!-- Note: Keep the Rolling File appender names to start with RF.* and ends with either Msg (message log) or Tmg (timing log) -->
+		<!--       This naming convention allows the app to use the default Rolling File appender (RF.AADefault) in case a new rolling file apender is not configured properly -->
+
+		<!-- Start Default Rolling File Appenders -->
+        <RollingFile name="RF.AADefault.Msg" fileName="${ctx:logFilePath}\Default\AADefault_msg_${env}.log"  filePattern="${ctx:logFilePath}\Default\AADefault_msg_${env}.log.%d{yyyy-MM-dd}" immediateFlush="false">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+      		</Policies>
+      					<DefaultRolloverStrategy max="30">
+               <Delete basePath="${ctx:logFilePath}\Default\" maxDepth="1">
+					<IfLastModified age="30d"/>				
+				</Delete>
+            </DefaultRolloverStrategy>			
+
+        </RollingFile>
+        <RollingFile name="RF.AADefault.Tmg" fileName="${ctx:logFilePath}\Default\AADefault_tmg_${env}.log"  filePattern="${ctx:logFilePath}\Default\AADefault_tmg_${env}.log.%d{yyyy-MM-dd}" immediateFlush="false">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+      		</Policies>
+      					<DefaultRolloverStrategy max="30">
+               <Delete basePath="${ctx:logFilePath}\Default\" maxDepth="1">
+					<IfLastModified age="30d"/>				
+				</Delete>
+            </DefaultRolloverStrategy>			
+
+        </RollingFile>
+		<!-- End Default Rolling File Appenders -->
+		
+		<!-- Start PICKUP Webservice Rolling File Appenders -->
+        <RollingFile name="RF.EstesRTPickup.Msg" fileName="${ctx:logFilePath}\EstesRTPickup\EstesRTPickup_msg_${env}.log"  filePattern="${ctx:logFilePath}\EstesRTPickup\EstesRTPickup_msg_${env}.log.%d{yyyy-MM-dd}" immediateFlush="true">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+				<SizeBasedTriggeringPolicy size="50MB"/>
+      		</Policies>
+      					<DefaultRolloverStrategy max="30">
+               <Delete basePath="${ctx:logFilePath}\EstesRTPickup\" maxDepth="1">
+					<IfLastModified age="30d"/>				
+				</Delete>
+            </DefaultRolloverStrategy>			
+
+        </RollingFile>
+		<!-- End PICKUP Webservice Rolling File settings -->
+		
+		
+				<!-- Start EstesRTSureMove Rolling File Appenders -->
+        <RollingFile name="RF.EstesRTSureMove.Msg" fileName="${ctx:logFilePath}\EstesRTSureMove\EstesRTSureMove_msg_${env}.log"  filePattern="${ctx:logFilePath}\EstesRTSureMove\EstesRTSureMove_msg_${env}.log.%d{yyyy-MM-dd-mm}" immediateFlush="true">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" />
+			<Policies>
+				<!-- <TimeBasedTriggeringPolicy interval="1" modulate="true"/> -->
+				<SizeBasedTriggeringPolicy size="50MB"/>
+      		</Policies>
+      					<DefaultRolloverStrategy max="30">
+               <Delete basePath="${ctx:logFilePath}\EstesRTSureMove\" maxDepth="1">
+					<IfLastModified age="30d"/>				
+				</Delete>
+            </DefaultRolloverStrategy>			
+
+        </RollingFile>
+		
+			<!-- Start EstesRTPDRouteOptimization Rolling File Appenders -->
+        <RollingFile name="RF.EstesRTPDRouteOptimization.Msg" fileName="${ctx:logFilePath}\EstesRTPDRouteOptimization\EstesRTPDRouteOptimization_msg_${env}.log"  filePattern="${ctx:logFilePath}\EstesRTPDRouteOptimization\EstesRTPDRouteOptimization_msg_${env}.log.%d{yyyy-MM-dd-mm}" immediateFlush="true">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" />
+			<Policies>
+				<!-- <TimeBasedTriggeringPolicy interval="1" modulate="true"/> -->
+				<SizeBasedTriggeringPolicy size="50MB"/>
+      		</Policies>
+      					<DefaultRolloverStrategy max="30">
+               <Delete basePath="${ctx:logFilePath}\EstesRTPDRouteOptimization\" maxDepth="1">
+					<IfLastModified age="30d"/>				
+				</Delete>
+            </DefaultRolloverStrategy>			
+
+        </RollingFile>
+		
+		<!-- End EstesRTPDRouteOptimization Rolling File settings -->
+
+				<!-- Start Shipment Rolling File Appenders -->
+        <RollingFile name="RF.EstesShipment.Msg" fileName="${ctx:logFilePath}\EstesShipment\EstesShipment_msg_${env}.log"  filePattern="${ctx:logFilePath}\EstesShipment\EstesShipment_msg_${env}.log.%d{yyyy-MM-dd-mm}" immediateFlush="true">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" />
+			<Policies>
+				<!-- <TimeBasedTriggeringPolicy interval="1" modulate="true"/> -->
+				<SizeBasedTriggeringPolicy size="50MB"/>
+      		</Policies>
+      					<DefaultRolloverStrategy max="30">
+               <Delete basePath="${ctx:logFilePath}\EstesShipment\" maxDepth="1">
+					<IfLastModified age="30d"/>				
+				</Delete>
+            </DefaultRolloverStrategy>			
+
+        </RollingFile>
+		<!-- End Shipment Rolling File settings -->
+		
+		
+		<!-- Start EstesRTCentralDispatch Rolling File Appenders -->
+        <RollingFile name="RF.EstesRTCentralDispatcherDriverAuthenticationLogger.Msg" fileName="${ctx:logFilePath}\EstesRTCentralDispatch\EstesDriverAuthentication\EstesRTCentralDispatcherDriverAuthentication_msg_${env}.log"  filePattern="${ctx:logFilePath}\EstesRTCentralDispatch\EstesDriverAuthentication\EstesRTCentralDispatcherDriverAuthentication_msg_${env}.log.%d{yyyy-MM-dd-mm}" immediateFlush="true">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" />
+			<Policies>
+				<!-- <TimeBasedTriggeringPolicy interval="1" modulate="true"/> -->
+				<SizeBasedTriggeringPolicy size="50MB"/>
+      		</Policies>
+      					<DefaultRolloverStrategy max="30">
+               <Delete basePath="${ctx:logFilePath}\EstesRTCentralDispatch\" maxDepth="1">
+					<IfLastModified age="30d"/>				
+				</Delete>
+            </DefaultRolloverStrategy>			
+
+        </RollingFile>
+		<RollingFile name="RF.EstesRTCentralDispatcherDriverLoadLogger.Msg" fileName="${ctx:logFilePath}\EstesRTCentralDispatch\EstesDriverLoad\EstesRTCentralDispatcherDriverLoad_msg_${env}.log"  filePattern="${ctx:logFilePath}\EstesRTCentralDispatch\EstesDriverLoad\EstesRTCentralDispatcherDriverLoad_msg_${env}.log.%d{yyyy-MM-dd-mm}" immediateFlush="true">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" />
+			<Policies>
+				<!-- <TimeBasedTriggeringPolicy interval="1" modulate="true"/> -->
+				<SizeBasedTriggeringPolicy size="50MB"/>
+      		</Policies>
+      					<DefaultRolloverStrategy max="30">
+               <Delete basePath="${ctx:logFilePath}\EstesRTCentralDispatch\" maxDepth="1">
+					<IfLastModified age="30d"/>				
+				</Delete>
+            </DefaultRolloverStrategy>			
+
+        </RollingFile>
+		<RollingFile name="RF.EstesRTCentralDispatcherTerminalMaintenanceLogger.Msg" fileName="${ctx:logFilePath}\EstesRTCentralDispatch\EstesTerminalMaintenance\EstesRTCentralDispatcherTerminalMaintenance_msg_${env}.log"  filePattern="${ctx:logFilePath}\EstesRTCentralDispatch\EstesTerminalMaintenance\EstesRTCentralDispatcherTerminalMaintenance_msg_${env}.log.%d{yyyy-MM-dd-mm}" immediateFlush="true">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" />
+			<Policies>
+				<!-- <TimeBasedTriggeringPolicy interval="1" modulate="true"/> -->
+				<SizeBasedTriggeringPolicy size="50MB"/>
+      		</Policies>
+      					<DefaultRolloverStrategy max="30">
+               <Delete basePath="${ctx:logFilePath}\EstesRTCentralDispatch\" maxDepth="1">
+					<IfLastModified age="30d"/>				
+				</Delete>
+            </DefaultRolloverStrategy>			
+
+        </RollingFile>
+		<RollingFile name="RF.EstesRTCentralDispatcherDriverAcceptRejectLoadLogger.Msg" fileName="${ctx:logFilePath}\EstesRTCentralDispatch\EstesDriverAcceptReject\EstesRTCentralDispatcherAcceptReject_msg_${env}.log"  filePattern="${ctx:logFilePath}\EstesRTCentralDispatch\EstesDriverAcceptReject\EstesRTCentralDispatcherAcceptReject_msg_${env}.log.%d{yyyy-MM-dd-mm}" immediateFlush="true">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" />
+			<Policies>
+				<!-- <TimeBasedTriggeringPolicy interval="1" modulate="true"/> -->
+				<SizeBasedTriggeringPolicy size="50MB"/>
+      		</Policies>
+      					<DefaultRolloverStrategy max="30">
+               <Delete basePath="${ctx:logFilePath}\EstesRTCentralDispatch\" maxDepth="1">
+					<IfLastModified age="30d"/>				
+				</Delete>
+            </DefaultRolloverStrategy>			
+
+        </RollingFile>
+		<RollingFile name="RF.EstesRTALKGetETATimeZone.Msg" fileName="${ctx:logFilePath}\EstesRTCentralDispatch\EstesRTALKGetETATimeZone\EstesRTALKGetETATimeZone_msg_${env}.log"  filePattern="${ctx:logFilePath}\EstesRTCentralDispatch\EstesDriverAcceptReject\EstesRTCentralDispatcherAcceptReject_msg_${env}.log.%d{yyyy-MM-dd-mm}" immediateFlush="true">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" />
+			<Policies>
+				<!-- <TimeBasedTriggeringPolicy interval="1" modulate="true"/> -->
+				<SizeBasedTriggeringPolicy size="50MB"/>
+      		</Policies>
+      					<DefaultRolloverStrategy max="30">
+               <Delete basePath="${ctx:logFilePath}\EstesRTCentralDispatch\" maxDepth="2">
+					<IfLastModified age="30d"/>				
+				</Delete>
+            </DefaultRolloverStrategy>			
+
+        </RollingFile>
+		<!-- End EstesRTCentralDispatch Rolling File settings -->
+		
+		<!-- Start EstesRTCandidateExport Rolling File Appenders -->
+        <RollingFile name="RF.EstesRTCandidateExport.Msg" fileName="${ctx:logFilePath}\EstesRTCandidateExport\EstesRTCandidateExport_msg_${env}.log"  filePattern="${ctx:logFilePath}\EstesRTCandidateExport\EstesRTCandidateExport_msg_${env}.log.%d{yyyy-MM-dd}" immediateFlush="true">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+				<SizeBasedTriggeringPolicy size="1KB"/>
+      		</Policies>
+      					<DefaultRolloverStrategy max="30">
+               <Delete basePath="${ctx:logFilePath}\EstesRTCandidateExport\" maxDepth="1">
+					<IfLastModified age="30d"/>				
+				</Delete>
+            </DefaultRolloverStrategy>			
+
+        </RollingFile>
+		<!-- End EstesRTCandidateExport Rolling File settings -->
+		
+		<!-- Start EstesRTRateWareXL Rolling File Appenders -->
+        <RollingFile name="RF.EstesRTRateWareXL.Msg" fileName="${ctx:logFilePath}\EstesRTRateWareXL\EstesRTRateWareXL_msg_${env}.log"  filePattern="${ctx:logFilePath}\EstesRTRateWareXL\EstesRTRateWareXL_msg_${env}.log.%d{yyyy-MM-dd}" immediateFlush="true">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" />
+			<Policies> 
+				<!-- <TimeBasedTriggeringPolicy interval="1" modulate="true"/> -->
+				<SizeBasedTriggeringPolicy size="100KB"/>
+			</Policies>
+      			<DefaultRolloverStrategy max="30"/>		
+        </RollingFile>
+		<!-- End EstesRTRateWareXL Rolling File settings -->
+		
+		 <!--  Start EstesOutboundSms Rolling File Appenders 
+  --> 
+		<RollingFile name="RF.EstesOutboundSms.Msg" fileName="${ctx:logFilePath}\EstesOutboundSms\EstesOutboundSms_msg_${env}.log" filePattern="${ctx:logFilePath}\EstesOutboundSms\EstesOutboundSms_msg_${env}.log.%d{yyyy-MM-dd-mm}" immediateFlush="true">
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" /> 
+			<Policies>
+				<SizeBasedTriggeringPolicy size="50MB" /> 
+			</Policies>
+		<DefaultRolloverStrategy max="30">
+			<Delete basePath="${ctx:logFilePath}\EstesOutboundSms\" maxDepth="1">
+			<IfLastModified age="30d" /> 
+			</Delete>
+		</DefaultRolloverStrategy>
+  </RollingFile>
+  
+   <!--  Start EstesShipmentTracking Rolling File Appenders 
+  --> 
+		<RollingFile name="RF.EstesShipmentTracking.Msg" fileName="${ctx:logFilePath}\EstesShipmentTracking\EstesShipmentTracking_msg_${env}.log" filePattern="${ctx:logFilePath}\EstesShipmentTracking\EstesShipmentTracking_msg_${env}.log.%d{yyyy-MM-dd-mm}" immediateFlush="true">
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" /> 
+			<Policies>
+				<SizeBasedTriggeringPolicy size="50MB" /> 
+			</Policies>
+		<DefaultRolloverStrategy max="30">
+			<Delete basePath="${ctx:logFilePath}\EstesShipmentTracking\" maxDepth="1">
+			<IfLastModified age="30d" /> 
+			</Delete>
+		</DefaultRolloverStrategy>
+  </RollingFile>
+<!--  End EstesShipmentTracking Rolling File settings  -->
+
+<!-- Start CityDispatch Rolling File Appenders -->
+        <RollingFile name="RF.EstesRTCityDispatch.Msg" fileName="${ctx:logFilePath}\EstesRTCityDispatch\EstesRTCityDispatch_msg_${env}.log"  filePattern="${ctx:logFilePath}\EstesRTCityDispatch\EstesRTCityDispatch_msg_${env}.log.%d{yyyy-MM-dd-mm}" immediateFlush="true">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" />
+			<Policies>
+				<!-- <TimeBasedTriggeringPolicy interval="1" modulate="true"/> -->
+				<SizeBasedTriggeringPolicy size="50MB"/>
+      		</Policies>
+			<DefaultRolloverStrategy max="30">
+               <Delete basePath="${ctx:logFilePath}\EstesRTCityDispatch\" maxDepth="1">
+					<IfLastModified age="30d"/>				
+				</Delete>
+            </DefaultRolloverStrategy>			
+        </RollingFile>
+		<!-- End CityDispatch Rolling File settings -->
+		
+
+<!--  End EstesOutboundSms Rolling File settings  -->
+		
+        <!-- ##### End of Rolling File List ##### -->
+
+
+        <!-- =========================== -->
+
+
+		<!-- ##### Async List ##### -->
+		<!-- Note: Keep the Async appender names to start with Async.* and ends with either Msg (message log) or Tmg (timing log) -->
+		<!-- 	   For Async Rolling File appender, prefix the name with Async.RF.* -->
+		<!--       This naming convention allows the app to use the default Async Rolling File appender (Async.RF.AADefault) in case a new async rolling file apender is not configured properly -->
+
+		<!-- End Default Async Appenders -->
+		<Async name="Async.RF.AADefault.Msg">
+			<AppenderRef ref="RF.AADefault.Msg"/>
+		</Async>
+		<Async name="Async.RF.AADefault.Tmg">
+			<AppenderRef ref="RF.AADefault.Tmg"/>
+		</Async>
+		<!-- End Default Async Appenders -->
+		<!-- Start EstesRTPickup Async Appenders -->
+		<Async name="Async.RF.EstesRTPickup.Msg">
+			<AppenderRef ref="RF.EstesRTPickup.Msg"/>
+		</Async>
+		<!-- End EstesRTPickup Async Appenders -->
+		
+		<!-- Start EstesRTSureMove Async Appenders -->
+		<Async name="Async.RF.EstesRTSureMove.Msg">
+			<AppenderRef ref="RF.EstesRTSureMove.Msg"/>
+		</Async>
+		<!-- End EstesRTSureMove Async Appenders -->
+		
+		<!-- Start Shipment Async Appenders -->
+		<Async name="Async.RF.EstesShipment.Msg">
+			<AppenderRef ref="RF.EstesShipment.Msg"/>
+		</Async>
+		<!-- End Shipment Async Appenders -->
+		
+		<!-- Start EstesRTPDRouteOptimization Async Appenders -->
+		<Async name="Async.RF.EstesRTPDRouteOptimization.Msg">
+			<AppenderRef ref="RF.EstesRTPDRouteOptimization.Msg"/>
+		</Async>
+		<!-- End EstesRTPDRouteOptimization Async Appenders -->
+		<!-- Start EstesRTCentralDispatch Async Appenders -->
+		<Async name="Async.RF.EstesRTCentralDispatcherDriverAuthenticationLogger.Msg">
+			<AppenderRef ref="RF.EstesRTCentralDispatcherDriverAuthenticationLogger.Msg"/>
+		</Async>
+		<Async name="Async.RF.EstesRTCentralDispatcherDriverLoadLogger.Msg">
+			<AppenderRef ref="RF.EstesRTCentralDispatcherDriverLoadLogger.Msg"/>
+		</Async>
+		<Async name="Async.RF.EstesRTCentralDispatcherTerminalMaintenanceLogger.Msg">
+			
+			<AppenderRef ref="RF.EstesRTCentralDispatcherTerminalMaintenanceLogger.Msg"/>
+		
+		</Async>
+		<Async name="Async.RF.EstesRTCentralDispatcherDriverAcceptRejectLoadLogger.Msg">
+			<AppenderRef ref="RF.EstesRTCentralDispatcherDriverAcceptRejectLoadLogger.Msg"/>
+		</Async>
+		<Async name="Async.RF.EstesRTALKGetETATimeZone.Msg">
+			<AppenderRef ref="RF.EstesRTALKGetETATimeZone.Msg"/>
+		</Async>
+		<!-- End EstesRTCentralDispatch Async Appenders -->
+		
+		<!-- Start EstesRTCandidateExport Async Appenders -->
+		<Async name="Async.RF.EstesRTCandidateExport.Msg">
+			<AppenderRef ref="RF.EstesRTCandidateExport.Msg"/>
+		</Async>
+		<!-- End EstesRTCandidateExport Async Appenders -->
+		
+		 <!-- Start EstesRTRateWareXL Async Appenders -->
+		<Async name="Async.RF.EstesRTRateWareXL.Msg">
+			<AppenderRef ref="RF.EstesRTRateWareXL.Msg"/>
+		</Async>
+		<!-- End EstesRTRateWareXL Async Appenders -->
+		
+		
+		<!--  Start EstesOutboundSms Async Appenders --> 
+		<Async name="Async.RF.EstesOutboundSms.Msg">
+			<AppenderRef ref="RF.EstesOutboundSms.Msg" /> 
+		</Async>
+ <!--  End EstesOutboundSms Async Appenders --> 
+ 
+ 
+		<!--  Start EstesShipmentTracking Async Appenders --> 
+		<Async name="Async.RF.EstesShipmentTracking.Msg">
+			<AppenderRef ref="RF.EstesShipmentTracking.Msg" /> 
+		</Async>
+ <!--  End EstesShipmentTracking Async Appenders --> 
+		
+		<!-- Start CityDispatch Async Appenders -->
+		<Async name="Async.RF.EstesRTCityDispatch.Msg">
+			<AppenderRef ref="RF.EstesRTCityDispatch.Msg"/>
+		</Async>
+		<!-- End CityDispatch Async Appenders -->
+		
+	
+		
+		<!-- ##### End of Async List ##### --> 
+    </Appenders>
+
+	<!-- =========================== -->
+
+    <Loggers>
+        <!-- Every configuration must have a root logger. If one is not configured the default root LoggerConfig is ERROR with Console appender attached. -->
+        <AsyncRoot  level="DEBUG" includeLocation="false">
+            <AppenderRef ref="Async.RF.AADefault.Msg"/>
+        </AsyncRoot >
+
+		<!-- Logger List -->
+		<!-- Note: Keep the Logger names to end with either Msg (message log) or Tmg (timing log)-->
+
+		<AsyncLogger name="AADefault.Msg" level="INFO" includeLocation="false" additivity="false">
+            <AppenderRef ref="Async.RF.AADefault.Msg"/>
+        </AsyncLogger>
+		<AsyncLogger name="AADefault.Tmg" level="INFO" includeLocation="false" additivity="false">
+            <AppenderRef ref="Async.RF.AADefault.Tmg"/>
+        </AsyncLogger>
+        <!-- Start PeopleNet Loggers -->
+		<AsyncLogger name="EstesRTPickupLogger" level="DEBUG" includeLocation="false" additivity="false">
+            <AppenderRef ref="Async.RF.EstesRTPickup.Msg"/>
+        </AsyncLogger>
+		<!-- End PeopleNet Loggers -->
+		
+		<!-- Start Shipment Loggers -->
+		<AsyncLogger name="EstesShipmentMessageLogger" level="DEBUG" includeLocation="false" additivity="false">
+            <AppenderRef ref="Async.RF.EstesShipment.Msg"/>
+        </AsyncLogger>
+		<!-- End Shipment Loggers -->
+		
+        <!-- Start EstesRTSureMove Loggers -->
+		<AsyncLogger name="EstesRTSureMoveLogger" level="DEBUG" includeLocation="false" additivity="false">
+            <AppenderRef ref="Async.RF.EstesRTSureMove.Msg"/>
+        </AsyncLogger>
+		<!-- End EstesRTSureMove Loggers -->
+		 <!-- Start EstesRTPDRouteOptimization Loggers -->
+		<AsyncLogger name="EstesRTPDRouteOptimizationLogger" level="DEBUG" includeLocation="false" additivity="false">
+            <AppenderRef ref="Async.RF.EstesRTPDRouteOptimization.Msg"/>
+        </AsyncLogger>
+		<!-- End EstesRTPDRouteOptimization Loggers -->
+
+		<!-- Start EstesRTCentralDispatch Loggers -->
+		<AsyncLogger name="EstesRTCentralDispatcherDriverAuthenticationLogger" level="DEBUG" includeLocation="false" additivity="false">
+            <AppenderRef ref="Async.RF.EstesRTCentralDispatcherDriverAuthenticationLogger.Msg"/>
+        </AsyncLogger>
+		<AsyncLogger name="EstesRTCentralDispatcherDriverLoadLogger" level="DEBUG" includeLocation="false" additivity="false">
+            <AppenderRef ref="Async.RF.EstesRTCentralDispatcherDriverLoadLogger.Msg"/>
+        </AsyncLogger>
+		<AsyncLogger name="EstesRTCentralDispatcherTerminalMaintenanceLogger" level="DEBUG" includeLocation="false" additivity="false">
+            
+			<AppenderRef ref="Async.RF.EstesRTCentralDispatcherTerminalMaintenanceLogger.Msg"/>
+        
+		</AsyncLogger>
+		<AsyncLogger name="EstesRTCentralDispatcherDriverAcceptRejectLoadLogger" level="DEBUG" includeLocation="false" additivity="false">
+            <AppenderRef ref="Async.RF.EstesRTCentralDispatcherDriverAcceptRejectLoadLogger.Msg"/>
+        </AsyncLogger>
+		<AsyncLogger name="EstesRTALKGetETATimeZoneLogger" level="DEBUG" includeLocation="false" additivity="false">
+            <AppenderRef ref="Async.RF.EstesRTALKGetETATimeZone.Msg"/>
+        </AsyncLogger>
+		<!-- End EstesRTCentralDispatch Loggers -->
+
+		<!-- Start EstesRTCandidateExport Loggers -->
+		<AsyncLogger name="EstesRTCandidateExportLogger" level="DEBUG" includeLocation="false" additivity="false">
+            <AppenderRef ref="Async.RF.EstesRTCandidateExport.Msg"/>
+        </AsyncLogger>
+		<!-- End EstesRTCandidateExport Loggers -->
+		
+		<!-- Start EstesRTRateWareXL Loggers -->
+		<AsyncLogger name="EstesRTRateWareXLLogger" level="DEBUG" includeLocation="false" additivity="false">
+            <AppenderRef ref="Async.RF.EstesRTRateWareXL.Msg"/>
+        </AsyncLogger>
+		<!-- End EstesRTRateWareXL Loggers -->
+
+		<!--  Start EstesOutboundSms Loggers --> 
+		<AsyncLogger name="EstesOutboundSmsLogger" level="DEBUG" includeLocation="false" additivity="false">
+		<AppenderRef ref="Async.RF.EstesOutboundSms.Msg" /> 
+		</AsyncLogger>
+		<!--  End EstesOutboundSms Loggers  -->
+		
+		<!--  Start EstesShipmentTracking Loggers --> 
+		<AsyncLogger name="EstesShipmentTrackingLogger" level="DEBUG" includeLocation="false" additivity="false">
+		<AppenderRef ref="Async.RF.EstesShipmentTracking.Msg" /> 
+		</AsyncLogger>
+		<!--  End EstesShipmentTracking Loggers  -->
+		
+		<!-- Start EstesRTCityDispatch Loggers -->
+		<AsyncLogger name="EstesRTCityDispatchLogger" level="DEBUG" includeLocation="false" additivity="false">
+            <AppenderRef ref="Async.RF.EstesRTCityDispatch.Msg"/>
+        </AsyncLogger>
+		<!-- End EstesRTCityDispatch Loggers -->
+		
+    </Loggers>
+
+</Configuration>

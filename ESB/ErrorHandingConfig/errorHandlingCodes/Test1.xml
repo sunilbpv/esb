@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<EFWInputs>
+  <systemConfigInfo>
+    <system_id>TEST2</system_id>
+    <system_name>Test System</system_name>
+    <system_description>System record for tesing and development purposes.</system_description>
+    <serviceConfigInfo>
+      <service_id>test2</service_id>
+      <service_description>test</service_description>
+      <service_name>test1</service_name>
+      <service_type>test1</service_type>
+      <configEntries/>
+      <errorCodeConfigs>
+        <errorCodeConfig>
+          <error_type>B</error_type>
+          <custom_error_code>test2</custom_error_code>
+          <custom_error_text>test1</custom_error_text>
+          <severity>H</severity>
+          <wm_error_string>test1</wm_error_string>
+          <log_pipeline_flag>N</log_pipeline_flag>
+          <message_inaction>Y</message_inaction>
+          <errorEmail>
+            <sendEmailFlag>Y</sendEmailFlag>
+            <to_mail_list>Himanshu.Bhardwaj@estes-express.com,Sunil.Venkata@estes-express.com,Ugendar.Vodapelly@estes-express.com,Joe.Yang@estes-express.com,Rob.Newton@estes-express.com,Varun.Singh@estes-express.com</to_mail_list>
+            <cc_mail_list/>
+            <bcc_mail_list/>
+            <action_type>Email</action_type>
+            <action_description/>
+            <to_list_desc>EIT SOA Dev Team</to_list_desc>
+            <cc_list_desc/>
+            <bcc_list_desc/>
+          </errorEmail>
+        </errorCodeConfig>
+      </errorCodeConfigs>
+    </serviceConfigInfo>
+  </systemConfigInfo>
+</EFWInputs>

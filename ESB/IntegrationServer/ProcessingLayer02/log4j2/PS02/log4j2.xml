@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="30" status="DEBUG" verbose="false">
+
+    <!-- monitorInterval: automatic reload every 30sec on changes -->
+    <!-- status: log4j2 internal logging (not for the app) -->
+    <!-- Don't forget to set system property
+	-DLog4jContextSelector=org.apache.logging.log4j.core.async.AsyncLoggerContextSelector
+     	to make all loggers asynchronous.
+    -->
+
+    <Properties>
+     	<!-- ENVIRONMENT SPECIFIC -->
+		<Property name="env">dev</Property>
+		<Property name="logFilePath">\\esb\ESB_Dev\Logs\PS02</Property>
+
+    </Properties>
+
+	<!-- =========================== -->
+
+    <Appenders>
+
+        <!-- the standard-console-appender -->
+        <Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %p %c{1.} [%t] %m%n" />
+		</Console>
+
+
+		<!-- ##### Rolling File List ##### -->
+		<!-- Note: Keep the Rolling File appender names to start with RF.* and ends with either Msg (message log) or Tmg (timing log) -->
+		<!--       This naming convention allows the app to use the default Rolling File appender (RF.AADefault) in case a new rolling file apender is not configured properly -->
+
+
+		<!-- Start Default Rolling File Appenders -->
+        <RollingFile name="RF.AADefault.Msg" fileName="${ctx:logFilePath}\Default\AADefault_msg_${env}.log"  filePattern="${ctx:logFilePath}\Default\AADefault_msg_${env}.log.%d{yyyy-MM-dd}" immediateFlush="false">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+      		</Policies>
+			<DefaultRolloverStrategy max="30">
+               <Delete basePath="${ctx:logFilePath}\Default\" maxDepth="1">
+					<IfLastModified age="30d"/>				
+				</Delete>
+            </DefaultRolloverStrategy>			
+        </RollingFile>
+        <RollingFile name="RF.AADefault.Tmg" fileName="${ctx:logFilePath}\Default\AADefault_tmg_${env}.log"  filePattern="${ctx:logFilePath}\Default\AADefault_tmg_${env}.log.%d{yyyy-MM-dd}" immediateFlush="false">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+      		</Policies>
+      					<DefaultRolloverStrategy max="30">
+               <Delete basePath="${ctx:logFilePath}\Default\" maxDepth="1">
+					<IfLastModified age="30d"/>				
+				</Delete>
+            </DefaultRolloverStrategy>			
+
+        </RollingFile>
+		<!-- End Default Rolling File Appenders -->
+
+		<!-- Start ESBFramework Rolling File Appenders -->
+        <RollingFile name="RF.ESBFramework.Msg" fileName="${ctx:logFilePath}\ESBFramework\ESBFramework_msg_${env}.log"  filePattern="${ctx:logFilePath}\ESBFramework\ESBFramework_msg_${env}.log.%d{yyyy-MM-dd}" immediateFlush="true">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" />
+			<Policies>
+				<SizeBasedTriggeringPolicy size="50MB"/>
+      		</Policies>
+      					<DefaultRolloverStrategy max="30">
+               <Delete basePath="${ctx:logFilePath}\ESBFramework\" maxDepth="1">
+					<IfLastModified age="30d"/>				
+				</Delete>
+            </DefaultRolloverStrategy>			
+
+        </RollingFile>
+		<!-- End ESBFramework Rolling File settings -->
+		
+		<!-- Start CCI Rolling File Appenders -->
+        <RollingFile name="RF.CCI.Msg" fileName="${ctx:logFilePath}\EstesPSTwoCCI\EstesPSTwoCCI_msg_${env}.log"  filePattern="${ctx:logFilePath}\EstesPSTwoCCI\EstesPSTwoCCI_msg_${env}.log.%d{yyyy-MM-dd-mm}" immediateFlush="true">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" />
+			<Policies>
+				<!-- <TimeBasedTriggeringPolicy interval="1" modulate="true"/> -->
+				<SizeBasedTriggeringPolicy size="5MB"/>
+      		</Policies>
+      		<DefaultRolloverStrategy max="30">
+               <Delete basePath="${ctx:logFilePath}\EstesPSTwoCCI\" maxDepth="1">
+					<IfLastModified age="30d"/>				
+				</Delete>
+            </DefaultRolloverStrategy>			
+
+        </RollingFile>
+		<!-- End CCI Rolling File settings -->
+		
+		
+		<!-- Start PeopleNet Rolling File Appenders -->
+        <RollingFile name="RF.EstesPeopleNet.Msg" fileName="${ctx:logFilePath}\EstesPeopleNet\EstesPeopleNet_msg_${env}.log"  filePattern="${ctx:logFilePath}\EstesPeopleNet\EstesPeopleNet_msg_${env}.log.%d{yyyy-MM-dd-mm}" immediateFlush="true">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" />
+			<Policies>
+				<!-- <TimeBasedTriggeringPolicy interval="1" modulate="true"/> -->
+				<SizeBasedTriggeringPolicy size="50MB"/>
+      		</Policies>
+      					<DefaultRolloverStrategy max="30">
+               <Delete basePath="${ctx:logFilePath}\EstesPeopleNet\" maxDepth="1">
+					<IfLastModified age="30d"/>				
+				</Delete>
+            </DefaultRolloverStrategy>			
+
+        </RollingFile>
+		<!-- End PeopleNet Rolling File settings -->
+		
+		<!-- Start Shipment Rolling File Appenders -->
+        <RollingFile name="RF.EstesShipment.Msg" fileName="${ctx:logFilePath}\EstesShipment\EstesShipment_msg_${env}.log"  filePattern="${ctx:logFilePath}\EstesShipment\EstesShipment_msg_${env}.log.%d{yyyy-MM-dd-mm}" immediateFlush="true">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" />
+			<Policies>
+				<!-- <TimeBasedTriggeringPolicy interval="1" modulate="true"/> -->
+				<SizeBasedTriggeringPolicy size="50MB"/>
+      		</Policies>
+      					<DefaultRolloverStrategy max="30">
+               <Delete basePath="${ctx:logFilePath}\EstesShipment\" maxDepth="1">
+					<IfLastModified age="30d"/>				
+				</Delete>
+            </DefaultRolloverStrategy>			
+
+        </RollingFile>
+		<!-- End Shipment Rolling File settings -->
+		
+		<!-- Start Pickup Rolling File Appenders -->
+        <RollingFile name="RF.EstesPSTwoPickup.Msg" fileName="${ctx:logFilePath}\EstesPSTwoPickup\EstesPSTwoPickup_msg_${env}.log"  filePattern="${ctx:logFilePath}\EstesPSTwoPickup\EstesPSTwoPickup_msg_${env}.log.%d{yyyy-MM-dd-mm}" immediateFlush="true">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" />
+			<Policies>
+				<!-- <TimeBasedTriggeringPolicy interval="1" modulate="true"/> -->
+				<SizeBasedTriggeringPolicy size="50MB"/>
+      		</Policies>
+      					<DefaultRolloverStrategy max="30">
+               <Delete basePath="${ctx:logFilePath}\EstesPSTwoPickup\" maxDepth="1">
+					<IfLastModified age="30d"/>				
+				</Delete>
+            </DefaultRolloverStrategy>			
+
+        </RollingFile>
+		<!-- End Pickup Rolling File settings -->
+		
+		<!-- Start CentralDispatch Rolling File Appenders -->
+        <RollingFile name="RF.EstesCentralDispatch.Msg" fileName="${ctx:logFilePath}\EstesPSTwoCentralDispatch\EstesPSTwoCentralDispatch_msg_${env}.log"  filePattern="${ctx:logFilePath}\EstesPSTwoCentralDispatch\EstesPSTwoCentralDispatch_msg_${env}.log.%d{yyyy-MM-dd-mm}" immediateFlush="true">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" />
+			<Policies>
+				<!-- <TimeBasedTriggeringPolicy interval="1" modulate="true"/> -->
+				<SizeBasedTriggeringPolicy size="50MB"/>
+      		</Policies>
+      					<DefaultRolloverStrategy max="30">
+               <Delete basePath="${ctx:logFilePath}\EstesPSTwoCentralDispatch\" maxDepth="1">
+					<IfLastModified age="30d"/>				
+				</Delete>
+            </DefaultRolloverStrategy>			
+
+        </RollingFile>
+		<!-- End CentralDispatch Rolling File settings -->
+		
+		<!-- Start EstesPsTwoPDRouteOptimization Rolling File Appenders -->
+        <RollingFile name="RF.EstesPSTwoPDRouteOptimization.Msg" fileName="${ctx:logFilePath}\EstesPSTwoPDRouteOptimization\EstesPSTwoPDRouteOptimization_msg_${env}.log"  filePattern="${ctx:logFilePath}\EstesPSTwoPDRouteOptimization\EstesPSTwoPDRouteOptimization_msg_${env}.log.%d{yyyy-MM-dd-mm}" immediateFlush="true">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" />
+			<Policies>
+				<!-- <TimeBasedTriggeringPolicy interval="1" modulate="true"/> -->
+				<SizeBasedTriggeringPolicy size="50MB"/>
+      		</Policies>
+      					<DefaultRolloverStrategy max="30">
+               <Delete basePath="${ctx:logFilePath}\EstesPSTwoPDRouteOptimization\" maxDepth="1">
+					<IfLastModified age="30d"/>				
+				</Delete>
+            </DefaultRolloverStrategy>			
+
+        </RollingFile>
+		
+		<!-- End EstesPsTwoPDRouteOptimization Rolling File settings -->
+		
+		<!-- Start EstesPSTwoRoadDisptach Rolling File Appenders -->
+        <RollingFile name="RF.EstesPSTwoRoadDisptach.Msg" fileName="${ctx:logFilePath}\EstesPSTwoRoadDisptach\EstesPSTwoRoadDisptach_msg_${env}.log"  filePattern="${ctx:logFilePath}\EstesPSTwoRoadDisptach\EstesPSTwoRoadDisptach_msg_${env}.log.%d{yyyy-MM-dd}" immediateFlush="true">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+				<SizeBasedTriggeringPolicy size="50 MB"/>
+      		</Policies>
+      					<DefaultRolloverStrategy max="30">
+               <Delete basePath="${ctx:logFilePath}\EstesPSTwoRoadDisptach\" maxDepth="1">
+					<IfLastModified age="30d"/>				
+				</Delete>
+            </DefaultRolloverStrategy>			
+
+        </RollingFile>
+		<!-- End EstesPSTwoRoadDisptach Rolling File settings -->
+
+		<!-- Start EstesFreightDimension Rolling File Appenders -->
+        <RollingFile name="RF.EstesFreightDimension.Msg" fileName="${ctx:logFilePath}\EstesFreightDimension\EstesFreightDimension_msg_${env}.log"  filePattern="${ctx:logFilePath}\EstesFreightDimension\EstesFreightDimension_msg_${env}.log.%d{yyyy-MM-dd}" immediateFlush="true">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+      		</Policies>
+      					<DefaultRolloverStrategy max="30">
+               <Delete basePath="${ctx:logFilePath}\EstesFreightDimension\" maxDepth="1">
+					<IfLastModified age="30d"/>				
+				</Delete>
+            </DefaultRolloverStrategy>			
+
+        </RollingFile>
+		<!-- End EstesFreightDimension Rolling File settings -->
+		
+		<!-- Start ECM Rolling File Appenders -->
+        <RollingFile name="RF.ECM.Msg" fileName="${ctx:logFilePath}\EstesPSTwoECM\EstesPSTwoECM_msg_${env}.log"  filePattern="${ctx:logFilePath}\EstesPSTwoECM\EstesPSTwoECM_msg_${env}.log.%d{yyyy-MM-dd-HH-mm}" immediateFlush="true">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" />
+			<Policies>
+				<!-- <TimeBasedTriggeringPolicy interval="1" modulate="true"/> -->
+				<SizeBasedTriggeringPolicy size="10MB"/>
+      		</Policies>
+      					<DefaultRolloverStrategy max="30">
+               <Delete basePath="${ctx:logFilePath}\EstesPSTwoECM\" maxDepth="1">
+					<IfLastModified age="30d"/>				
+				</Delete>
+            </DefaultRolloverStrategy>			
+
+        </RollingFile>
+
+		<RollingFile name="RF.ECM.Tmg" fileName="${ctx:logFilePath}\EstesPSTwoECM\EstesPSTwoECM_tmg_${env}.log"  filePattern="${ctx:logFilePath}\EstesPSTwoECM\EstesPSTwoECM_tmg_${env}.log.%d{yyyy-MM-dd}" immediateFlush="true">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+      		</Policies>
+      					<DefaultRolloverStrategy max="30">
+               <Delete basePath="${ctx:logFilePath}\EstesPSTwoECM\" maxDepth="1">
+					<IfLastModified age="30d"/>				
+				</Delete>
+            </DefaultRolloverStrategy>			
+
+        </RollingFile>
+		<!-- End ECM Rolling File settings -->
+		
+		<!-- Start EstesPNDPickup Rolling File Appenders -->
+        <RollingFile name="RF.EstesPNDPickup.Msg" fileName="${ctx:logFilePath}\EstesPNDPickup\EstesPNDPickup_msg_${env}.log"  filePattern="${ctx:logFilePath}\EstesPNDPickup\EstesPNDPickup_msg_${env}.log.%d{yyyy-MM-dd}" immediateFlush="true">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+      		</Policies>
+      					<DefaultRolloverStrategy max="30">
+               <Delete basePath="${ctx:logFilePath}\EstesPNDPickup\" maxDepth="1">
+					<IfLastModified age="30d"/>				
+				</Delete>
+            </DefaultRolloverStrategy>			
+
+        </RollingFile>
+		<!-- End EstesPNDPickup Rolling File settings -->
+				<!-- Start EstesTwoPega Rolling File Appenders -->
+        <RollingFile name="RF.EstesPSTwoPEGA.Msg" fileName="${ctx:logFilePath}\EstesPSTwoPEGA\EstesPSTwoPEGA_msg_${env}.log"  filePattern="${ctx:logFilePath}\EstesPSTwoPEGA\EstesPSTwoPEGA_msg_${env}.log.%d{yyyy-MM-dd}" immediateFlush="true">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+      		</Policies>
+      					<DefaultRolloverStrategy max="30">
+               <Delete basePath="${ctx:logFilePath}\EstesPSTwoPEGA\" maxDepth="1">
+					<IfLastModified age="30d"/>				
+				</Delete>
+            </DefaultRolloverStrategy>			
+
+        </RollingFile>
+		<!-- End EstesPSTwoPEGA Rolling File settings -->
+		<!-- Start EstesPNDDelivery Rolling File Appenders -->
+        <RollingFile name="RF.EstesPNDDelivery.Msg" fileName="${ctx:logFilePath}\EstesPNDDelivery\EstesPNDDelivery_msg_${env}.log"  filePattern="${ctx:logFilePath}\EstesPNDDelivery\EstesPNDDelivery_msg_${env}.log.%d{yyyy-MM-dd}" immediateFlush="true">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+      		</Policies>
+      					<DefaultRolloverStrategy max="30">
+               <Delete basePath="${ctx:logFilePath}\EstesPNDDelivery\" maxDepth="1">
+					<IfLastModified age="30d"/>				
+				</Delete>
+            </DefaultRolloverStrategy>			
+
+        </RollingFile>
+		<!-- End EstesPNDDelivery Rolling File settings -->
+
+ <!--  Start EstesPSTwoAmazonDci Rolling File Appenders 
+  --> 
+		<RollingFile name="RF.EstesPSTwoAmazonDci.Msg" fileName="${ctx:logFilePath}\EstesPSTwoAmazonDci\EstesPSTwoAmazonDci_msg_${env}.log" filePattern="${ctx:logFilePath}\EstesPSTwoAmazonDci\EstesPSTwoAmazonDci_msg_${env}.log.%d{yyyy-MM-dd-mm}" immediateFlush="true">
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5p] [%t] %logger{50} - %msg%n" /> 
+			<Policies>
+				<SizeBasedTriggeringPolicy size="50MB" /> 
+			</Policies>
+		<DefaultRolloverStrategy max="30">
+			<Delete basePath="${ctx:logFilePath}\EstesPSTwoAmazonDci\" maxDepth="1">
+			<IfLastModified age="30d" /> 
+			</Delete>
+		</DefaultRolloverStrategy>
+  </RollingFile>
+<!--  End EstesPSTwoAmazonDci Rolling File settings  -->
+
+	
+	
+	
+        <!-- ##### End of Rolling File List ##### -->
+
+
+        <!-- =========================== -->
+
+
+		<!-- ##### Async List ##### -->
+		<!-- Note: Keep the Async appender names to start with Async.* and ends with either Msg (message log) or Tmg (timing log) -->
+		<!-- 	   For Async Rolling File appender, prefix the name with Async.RF.* -->
+		<!--       This naming convention allows the app to use the default Async Rolling File appender (Async.RF.AADefault) in case a new async rolling file apender is not configured properly -->
+
+		<!-- End Default Async Appenders -->
+		<Async name="Async.RF.AADefault.Msg">
+			<AppenderRef ref="RF.AADefault.Msg"/>
+		</Async>
+		<Async name="Async.RF.AADefault.Tmg">
+			<AppenderRef ref="RF.AADefault.Tmg"/>
+		</Async>
+		<!-- End Default Async Appenders -->
+
+		<!-- Start ESBFramework Async Appenders -->
+		<Async name="Async.RF.ESBFramework.Msg">
+			<AppenderRef ref="RF.ESBFramework.Msg"/>
+		</Async>
+		<!-- End ESBFramework Async Appenders -->
+		
+		<!-- Start CCI Async Appenders -->
+		<Async name="Async.RF.CCI.Msg">
+			<AppenderRef ref="RF.CCI.Msg"/>
+		</Async>
+		<!-- End CCI Async Appenders -->
+		
+		<!-- Start PeopleNet Async Appenders -->
+		<Async name="Async.RF.EstesPeopleNet.Msg">
+			<AppenderRef ref="RF.EstesPeopleNet.Msg"/>
+		</Async>
+		<!-- End PeopleNet Async Appenders -->
+		
+		<!-- Start Shipment Async Appenders -->
+		<Async name="Async.RF.EstesShipment.Msg">
+			<AppenderRef ref="RF.EstesShipment.Msg"/>
+		</Async>
+		<!-- End Shipment Async Appenders -->
+		
+		<!-- Start Pickup Async Appenders -->
+		<Async name="Async.RF.EstesPSTwoPickup.Msg">
+			<AppenderRef ref="RF.EstesPSTwoPickup.Msg"/>
+		</Async>
+		<!-- End Pickup Async Appenders -->
+		
+		<!-- Start CentralDispatch Async Appenders -->
+		<Async name="Async.RF.EstesCentralDispatch.Msg">
+			<AppenderRef ref="RF.EstesCentralDispatch.Msg"/>
+		</Async>
+		<!-- End CentralDispatch Async Appenders -->
+		<!-- Start EstesPSTwoPDRouteOptimization Async Appenders -->
+		<Async name="Async.RF.EstesPSTwoPDRouteOptimization.Msg">
+			<AppenderRef ref="RF.EstesPSTwoPDRouteOptimization.Msg"/>
+		</Async>
+		
+		<!-- Start EstesPSTwoRoadDisptach Async Appenders -->
+		<Async name="Async.RF.EstesPSTwoRoadDisptach.Msg">
+			<AppenderRef ref="RF.EstesPSTwoRoadDisptach.Msg"/>
+		</Async>
+		<!-- End EstesPSTwoRoadDisptach Async Appenders -->
+		
+		<!-- Start EstesFreightDimension  Async Appenders -->
+		<Async name="Async.RF.EstesFreightDimension.Msg">
+			<AppenderRef ref="RF.EstesFreightDimension.Msg"/>
+		</Async>
+		<!-- End EstesFreightDimension Async Appenders -->
+		
+		<!-- Start ECM Async Appenders -->
+		<Async name="Async.RF.ECM.Msg">
+			<AppenderRef ref="RF.ECM.Msg"/>
+		</Async>
+
+		<Async name="Async.RF.ECM.Tmg">
+			<AppenderRef ref="RF.ECM.Tmg"/>
+		</Async>
+		<!-- End ECM Async Appenders -->
+		
+				<!-- Start EstesPNDPickup  Async Appenders -->
+		<Async name="Async.RF.EstesPNDPickup.Msg">
+			<AppenderRef ref="RF.EstesPNDPickup.Msg"/>
+		</Async>
+		<!-- End EstesPNDPickup Async Appenders -->
+		
+		<!-- Start EstesPSTwoPEGA  Async Appenders -->
+		<Async name="Async.RF.EstesPSTwoPEGA.Msg">
+			<AppenderRef ref="RF.EstesPSTwoPEGA.Msg"/>
+		</Async>
+		<!-- End EstesPSTwoPEGA Async Appenders -->
+
+		<!-- Start EstesPNDDelivery  Async Appenders -->
+		<Async name="Async.RF.EstesPNDDelivery.Msg">
+			<AppenderRef ref="RF.EstesPNDDelivery.Msg"/>
+		</Async>
+		<!-- End EstesPNDDelivery Async Appenders -->
+		
+		<!--  Start EstesPSTwoAmazonDci Async Appenders --> 
+		<Async name="Async.RF.EstesPSTwoAmazonDci.Msg">
+			<AppenderRef ref="RF.EstesPSTwoAmazonDci.Msg" /> 
+		</Async>
+ <!--  End EstesPSTwoAmazonDci Async Appenders --> 
+		
+		
+		<!-- ##### End of Async List ##### --> 
+		
+
+    </Appenders>
+
+	<!-- =========================== -->
+
+    <Loggers>
+        <!-- Every configuration must have a root logger. If one is not configured the default root LoggerConfig is ERROR with Console appender attached. -->
+        <AsyncRoot  level="ERROR" includeLocation="false">
+            <AppenderRef ref="Async.RF.AADefault.Msg"/>
+        </AsyncRoot >
+
+		<!-- Logger List -->
+		<!-- Note: Keep the Logger names to end with either Msg (message log) or Tmg (timing log)-->
+
+		<AsyncLogger name="AADefault.Msg" level="INFO" includeLocation="false" additivity="false">
+            <AppenderRef ref="Async.RF.AADefault.Msg"/>
+        </AsyncLogger>
+		<AsyncLogger name="AADefault.Tmg" level="INFO" includeLocation="false" additivity="false">
+            <AppenderRef ref="Async.RF.AADefault.Tmg"/>
+        </AsyncLogger>
+
+		<!-- Start ESBFramework Loggers -->
+		<AsyncLogger name="ESBFrameworkLogger" level="DEBUG" includeLocation="false" additivity="false">
+            <AppenderRef ref="Async.RF.ESBFramework.Msg"/>
+        </AsyncLogger>
+		<!-- End ESBFramework Loggers -->
+
+		<!-- Start CCI Loggers -->
+		<AsyncLogger name="EstesPSTwoCCIMessageLogger" level="DEBUG" includeLocation="false" additivity="false">
+            <AppenderRef ref="Async.RF.CCI.Msg"/>
+        </AsyncLogger>
+		<!-- End CCI Loggers -->
+		 
+		<!-- Start PeopleNet Loggers -->
+		<AsyncLogger name="EstesPeopleNetMessageLogger" level="DEBUG" includeLocation="false" additivity="false">
+            <AppenderRef ref="Async.RF.EstesPeopleNet.Msg"/>
+        </AsyncLogger>
+		<!-- End PeopleNet Loggers -->
+		
+		<!-- Start Shipment Loggers -->
+		<AsyncLogger name="EstesShipmentMessageLogger" level="DEBUG" includeLocation="false" additivity="false">
+            <AppenderRef ref="Async.RF.EstesShipment.Msg"/>
+        </AsyncLogger>
+		<!-- End Shipment Loggers -->
+		
+		<!--  Start Pickup Loggers --> 
+		<AsyncLogger name="EstesPickupMessageLogger" level="DEBUG" includeLocation="false" additivity="false">
+			<AppenderRef ref="Async.RF.EstesPSTwoPickup.Msg" /> 
+		</AsyncLogger>
+		<!--  End Pickup Loggers --> 
+		
+		<!-- Start CentralDispatch Loggers -->
+		<AsyncLogger name="EstesCentralDispatchLogger" level="DEBUG" includeLocation="false" additivity="false">
+            <AppenderRef ref="Async.RF.EstesCentralDispatch.Msg"/>
+        </AsyncLogger>
+		<!-- End CentralDispatch Loggers -->
+		
+		<!-- Start EstesPSTwoPDRouteOptimization Loggers -->
+		<AsyncLogger name="EstesPSTwoPDRouteOptimizationLogger" level="DEBUG" includeLocation="false" additivity="false">
+            <AppenderRef ref="Async.RF.EstesPSTwoPDRouteOptimization.Msg"/>
+        </AsyncLogger>
+		<!-- End EstesRTPDRouteOptimization Loggers -->
+        
+		<!-- Start EstesPSTwoRoadDisptach Loggers -->
+		<AsyncLogger name="EstesRoadDisptachMessageLogger" level="DEBUG" includeLocation="false" additivity="false">
+            <AppenderRef ref="Async.RF.EstesPSTwoRoadDisptach.Msg"/>
+        </AsyncLogger>
+		<!-- End EstesPSTwoRoadDisptach Loggers --> 
+		
+		<!-- Start EstesFreightDimensionLogger  Loggers -->
+		<AsyncLogger name="EstesFreightDimensionLogger" level="DEBUG" includeLocation="false" additivity="false">
+            <AppenderRef ref="Async.RF.EstesFreightDimension.Msg"/>
+        </AsyncLogger>
+		<!-- End EstesFreightDimensionLogger  Loggers -->
+
+		<!-- Start EstesECMMessageLogger Loggers -->
+		<AsyncLogger name="EstesECMMessageLogger" level="DEBUG" includeLocation="false" additivity="false">
+            <AppenderRef ref="Async.RF.ECM.Msg"/>
+        </AsyncLogger>
+
+		<AsyncLogger name="EstesECMTimingLogger" level="DEBUG" includeLocation="false" additivity="false">
+            <AppenderRef ref="Async.RF.ECM.Tmg"/>
+        </AsyncLogger>
+		<!-- End EstesECMMessageLogger Loggers -->	
+
+		<!-- Start EstesPNDPickup  Loggers -->
+		<AsyncLogger name="EstesPNDPickupLogger" level="DEBUG" includeLocation="false" additivity="false">
+            <AppenderRef ref="Async.RF.EstesPNDPickup.Msg"/>
+        </AsyncLogger>
+		<!-- End EstesPNDPickup  Loggers -->
+				<!-- Start EstesPSTwoPEGA  Loggers -->
+		<AsyncLogger name="EstesPSTwoPEGALogger" level="DEBUG" includeLocation="false" additivity="false">
+            <AppenderRef ref="Async.RF.EstesPSTwoPEGA.Msg"/>
+        </AsyncLogger>
+		<!-- End EstesPSTwoPEGA  Loggers -->
+		
+		<!-- Start EstesPNDDelivery  Loggers -->
+		<AsyncLogger name="EstesPNDDeliveryLogger" level="DEBUG" includeLocation="false" additivity="false">
+            <AppenderRef ref="Async.RF.EstesPNDDelivery.Msg"/>
+        </AsyncLogger>
+		<!-- End EstesPNDDelivery  Loggers -->
+		
+		<!--  Start EstesPSTwoAmazonDci Loggers --> 
+		<AsyncLogger name="EstesPSTwoAmazonDciLogger" level="DEBUG" includeLocation="false" additivity="false">
+		<AppenderRef ref="Async.RF.EstesPSTwoAmazonDci.Msg" /> 
+		</AsyncLogger>
+		<!--  End EstesPSTwoAmazonDci Loggers  -->
+
+    </Loggers>
+
+</Configuration>

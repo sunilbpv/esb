@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="svc_type">AdapterService</value>
+  <value name="svc_subtype">unknown</value>
+  <value name="svc_sigtype">java 3.5</value>
+  <record name="svc_sig" javaclass="com.wm.util.Values">
+    <record name="sig_in" javaclass="com.wm.util.Values">
+      <value name="node_type">record</value>
+      <value name="is_public">false</value>
+      <value name="field_name">insert215InternationalDetailInput</value>
+      <value name="field_type">record</value>
+      <value name="field_dim">0</value>
+      <value name="nillable">true</value>
+      <value name="form_qualified">false</value>
+      <value name="is_global">false</value>
+      <array name="rec_fields" type="record" depth="1">
+        <record javaclass="com.wm.util.Values">
+          <value name="node_type">record</value>
+          <value name="is_public">false</value>
+          <value name="field_name">insert215InternationalDetailInput</value>
+          <value name="field_type">record</value>
+          <value name="field_dim">0</value>
+          <value name="nillable">true</value>
+          <value name="form_qualified">false</value>
+          <value name="is_global">false</value>
+          <array name="rec_fields" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">record</value>
+              <value name="is_public">false</value>
+              <value name="field_name">overrideCredentials</value>
+              <value name="field_type">record</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+              <value name="form_qualified">false</value>
+              <value name="is_global">false</value>
+              <array name="rec_fields" type="record" depth="1">
+                <record javaclass="com.wm.util.Values">
+                  <value name="node_type">unknown</value>
+                  <value name="is_public">false</value>
+                  <value name="field_name">$dbUser</value>
+                  <value name="field_type">string</value>
+                  <value name="field_dim">0</value>
+                  <value name="nillable">true</value>
+                  <value name="form_qualified">false</value>
+                  <value name="is_global">false</value>
+                </record>
+                <record javaclass="com.wm.util.Values">
+                  <value name="node_type">unknown</value>
+                  <value name="is_public">false</value>
+                  <value name="field_name">$dbPassword</value>
+                  <value name="field_type">string</value>
+                  <value name="field_dim">0</value>
+                  <value name="nillable">true</value>
+                  <value name="form_qualified">false</value>
+                  <value name="is_global">false</value>
+                </record>
+              </array>
+              <value name="modifiable">true</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="is_public">false</value>
+              <value name="field_name">PICKUPREQUESTID</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+              <value name="form_qualified">false</value>
+              <value name="is_global">false</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="is_public">false</value>
+              <value name="field_name">DUTIABLESTATUSCODE</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+              <value name="form_qualified">false</value>
+              <value name="is_global">false</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="is_public">false</value>
+              <value name="field_name">IMPORTEXPORTCODE</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+              <value name="form_qualified">false</value>
+              <value name="is_global">false</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="is_public">false</value>
+              <value name="field_name">ASSIGNEDIDENTIFICATION</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+              <value name="form_qualified">false</value>
+              <value name="is_global">false</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="is_public">false</value>
+              <value name="field_name">QUANTITYINVOICED</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+              <value name="form_qualified">false</value>
+              <value name="is_global">false</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="is_public">false</value>
+              <value name="field_name">MEASUREMENTCODEBASIS</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+              <value name="form_qualified">false</value>
+              <value name="is_global">false</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="is_public">false</value>
+              <value name="field_name">UNITPRICE</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+              <value name="form_qualified">false</value>
+              <value name="is_global">false</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="is_public">false</value>
+              <value name="field_name">PRODUCTIDQUALIFIER1</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+              <value name="form_qualified">false</value>
+              <value name="is_global">false</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="is_public">false</value>
+              <value name="field_name">PRODUCTID1</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+              <value name="form_qualified">false</value>
+              <value name="is_global">false</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="is_public">false</value>
+              <value name="field_name">PRODUCTIDQUALIFIER2</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+              <value name="form_qualified">false</value>
+              <value name="is_global">false</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="is_public">false</value>
+              <value name="field_name">PRODUCTID2</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+              <value name="form_qualified">false</value>
+              <value name="is_global">false</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="is_public">false</value>
+              <value name="field_name">PRODUCTIDQUALIFIER3</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+              <value name="form_qualified">false</value>
+              <value name="is_global">false</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="is_public">false</value>
+              <value name="field_name">PRODUCTID3</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+              <value name="form_qualified">false</value>
+              <value name="is_global">false</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="is_public">false</value>
+              <value name="field_name">LADINGLINEITEMNUMBER</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+              <value name="form_qualified">false</value>
+              <value name="is_global">false</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="is_public">false</value>
+              <value name="field_name">LADINGDESCRIPTION</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+              <value name="form_qualified">false</value>
+              <value name="is_global">false</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="is_public">false</value>
+              <value name="field_name">COMMODITYCODE</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+              <value name="form_qualified">false</value>
+              <value name="is_global">false</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="is_public">false</value>
+              <value name="field_name">COMMODITYQUALIFIER</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+              <value name="form_qualified">false</value>
+              <value name="is_global">false</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="is_public">false</value>
+              <value name="field_name">CREATEUSER</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+              <value name="form_qualified">false</value>
+              <value name="is_global">false</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="is_public">false</value>
+              <value name="field_name">CREATEJOB</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+              <value name="form_qualified">false</value>
+              <value name="is_global">false</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="is_public">false</value>
+              <value name="field_name">CREATEPROGRAM</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+              <value name="form_qualified">false</value>
+              <value name="is_global">false</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="is_public">false</value>
+              <value name="field_name">CREATETIMESTAMP</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+              <value name="form_qualified">false</value>
+              <value name="is_global">false</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="is_public">false</value>
+              <value name="field_name">UPDATEUSER</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+              <value name="form_qualified">false</value>
+              <value name="is_global">false</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="is_public">false</value>
+              <value name="field_name">UPDATEJOB</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+              <value name="form_qualified">false</value>
+              <value name="is_global">false</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="is_public">false</value>
+              <value name="field_name">UPDATEPROGRAM</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+              <value name="form_qualified">false</value>
+              <value name="is_global">false</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="is_public">false</value>
+              <value name="field_name">UPDATETIMESTAMP</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+              <value name="form_qualified">false</value>
+              <value name="is_global">false</value>
+            </record>
+          </array>
+          <value name="modifiable">true</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <value name="node_type">record</value>
+          <value name="is_public">false</value>
+          <value name="field_name">$connectionName</value>
+          <value name="field_type">string</value>
+          <value name="field_dim">0</value>
+          <value name="field_opt">true</value>
+          <value name="nillable">false</value>
+          <value name="form_qualified">false</value>
+          <value name="is_global">false</value>
+        </record>
+      </array>
+      <value name="modifiable">true</value>
+    </record>
+    <record name="sig_out" javaclass="com.wm.util.Values">
+      <value name="node_type">record</value>
+      <value name="is_public">false</value>
+      <value name="field_name">insert215InternationalDetailOutput</value>
+      <value name="field_type">record</value>
+      <value name="field_dim">0</value>
+      <value name="nillable">true</value>
+      <value name="form_qualified">false</value>
+      <value name="is_global">false</value>
+      <array name="rec_fields" type="record" depth="1">
+        <record javaclass="com.wm.util.Values">
+          <value name="node_type">record</value>
+          <value name="is_public">false</value>
+          <value name="field_name">insert215InternationalDetailOutput</value>
+          <value name="field_type">record</value>
+          <value name="field_dim">0</value>
+          <value name="nillable">true</value>
+          <value name="form_qualified">false</value>
+          <value name="is_global">false</value>
+          <array name="rec_fields" type="record" depth="1">
+          </array>
+          <value name="modifiable">true</value>
+        </record>
+      </array>
+      <value name="modifiable">true</value>
+    </record>
+  </record>
+  <value name="node_comment"></value>
+  <value name="stateless">yes</value>
+  <value name="caching">no</value>
+  <value name="prefetch">no</value>
+  <value name="cache_ttl">15</value>
+  <value name="prefetch_level">1</value>
+  <value name="template_type">html</value>
+  <value name="audit_level">off</value>
+  <value name="check_internal_acls">no</value>
+  <value name="icontext_policy">$null</value>
+  <value name="svcInvkURLAlias"></value>
+  <value name="system_service">no</value>
+  <value name="retry_max">0</value>
+  <value name="retry_interval">0</value>
+  <value name="svc_in_validator_options">none</value>
+  <value name="svc_out_validator_options">none</value>
+  <value name="auditoption">0</value>
+  <null name="auditfields_input"/>
+  <null name="auditfields_output"/>
+  <record name="auditsettings" javaclass="com.wm.util.Values">
+    <value name="document_data">0</value>
+    <value name="startExecution">false</value>
+    <value name="stopExecution">false</value>
+    <value name="onError">true</value>
+  </record>
+  <value name="pipeline_option">1</value>
+  <null name="originURI"/>
+  <value name="modifiable">true</value>
+  <value name="is_public">false</value>
+  <value name="node_type">service</value>
+  <value name="IRTNODE_VERSION">1</value>
+  <value name="IRTNODE_PROPERTY">CwQAAAABBQEEGQBjAG8AbQAuAHcAbQAuAGQAYQB0AGEALgBJAFMATQBlAG0ARABhAHQAYQBJAG0AcABsBBMAcwBlAHIAdgBpAGMAZQBUAGUAbQBwAGwAYQB0AGUATgBhAG0AZQQlAGMAbwBtAC4AdwBtAC4AYQBkAGEAcAB0AGUAcgAuAHcAbQBqAGQAYgBjAC4AcwBlAHIAdgBpAGMAZQBzAC4ASQBuAHMAZQByAHQEDgBjAG8AbgBuAGUAYwB0AGkAbwBuAE4AYQBtAGUENABlAHMAdABlAHMAYwBvAG4AbgBlAGMAdABpAG8AbgBzAC4AagBkAGIAYwAuAGkAcwBlAHIAaQBlAHMAOgBFAHMAdABlAHMAQwBDAEkAXwBMAFQAXwBDAG8AbgBuAGUAYwB0AGkAbwBuBBIAdABlAG0AcABsAGEAdABlAFAAcgBvAHAAZQByAHQAaQBlAHMFAQACBBAAZABlAHMAaQBnAG4AVABpAG0AZQBMAG8AYwBhAGwAZQQFAGUAbgBfAFUAUwQRAGkAbgBwAHUAdABQAGEAcwBzAHcAbwByAGQAUwBpAGcAbgQfAG8AdgBlAHIAcgBpAGQAZQBDAHIAZQBkAGUAbgB0AGkAYQBsAHMALgAkAGQAYgBQAGEAcwBzAHcAbwByAGQEDABwAGEAcwBzAHcAbwByAGQAVAB5AHAAZQQQAGoAYQB2AGEALgBsAGEAbgBnAC4AUwB0AHIAaQBuAGcECABwAGEAcwBzAHcAbwByAGQADQQPAGkAbgBwAHUAdABVAHMAZQByAGkAZABTAGkAZwBuBBsAbwB2AGUAcgByAGkAZABlAEMAcgBlAGQAZQBuAHQAaQBhAGwAcwAuACQAZABiAFUAcwBlAHIECgB1AHMAZQByAGkAZABUAHkAcABlAA8EBgB1AHMAZQByAGkAZAATBBYAcgBlAHMAdQBsAHQALgByAGUAcwB1AGwAdABGAGkAZQBsAGQAVAB5AHAAZQQRAGoAYQB2AGEALgBsAGEAbgBnAC4ASQBuAHQAZQBnAGUAcgQSAHIAZQBzAHUAbAB0AC4AcgBlAHMAdQBsAHQARgBpAGUAbABkBAAEEwB1AHAAZABhAHQAZQAuAHEAdQBlAHIAeQBUAGkAbQBlAE8AdQB0CwT/////BBUAdQBwAGQAYQB0AGUALgBpAG4AcAB1AHQARgBpAGUAbABkAFQAeQBwAGUKGQAPAA8ADwAPAA8ADwAPAA8ADwAPAA8ADwAPAA8ADwAPAA8ADwAPAA8ADwAPAA8ADwAPAA8EEQB1AHAAZABhAHQAZQAuAGkAbgBwAHUAdABGAGkAZQBsAGQKGQAPBA8AUABJAEMASwBVAFAAUgBFAFEAVQBFAFMAVABJAEQEEgBEAFUAVABJAEEAQgBMAEUAUwBUAEEAVABVAFMAQwBPAEQARQQQAEkATQBQAE8AUgBUAEUAWABQAE8AUgBUAEMATwBEAEUEFgBBAFMAUwBJAEcATgBFAEQASQBEAEUATgBUAEkARgBJAEMAQQBUAEkATwBOBBAAUQBVAEEATgBUAEkAVABZAEkATgBWAE8ASQBDAEUARAQUAE0ARQBBAFMAVQBSAEUATQBFAE4AVABDAE8ARABFAEIAQQBTAEkAUwQJAFUATgBJAFQAUABSAEkAQwBFBBMAUABSAE8ARABVAEMAVABJAEQAUQBVAEEATABJAEYASQBFAFIAMQQKAFAAUgBPAEQAVQBDAFQASQBEADEEEwBQAFIATwBEAFUAQwBUAEkARABRAFUAQQBMAEkARgBJAEUAUgAyBAoAUABSAE8ARABVAEMAVABJAEQAMgQTAFAAUgBPAEQAVQBDAFQASQBEAFEAVQBBAEwASQBGAEkARQBSADMECgBQAFIATwBEAFUAQwBUAEkARAAzBBQATABBAEQASQBOAEcATABJAE4ARQBJAFQARQBNAE4AVQBNAEIARQBSBBEATABBAEQASQBOAEcARABFAFMAQwBSAEkAUABUAEkATwBOBA0AQwBPAE0ATQBPAEQASQBUAFkAQwBPAEQARQQSAEMATwBNAE0ATwBEAEkAVABZAFEAVQBBAEwASQBGAEkARQBSBAoAQwBSAEUAQQBUAEUAVQBTAEUAUgQJAEMAUgBFAEEAVABFAEoATwBCBA0AQwBSAEUAQQBUAEUAUABSAE8ARwBSAEEATQQPAEMAUgBFAEEAVABFAFQASQBNAEUAUwBUAEEATQBQBAoAVQBQAEQAQQBUAEUAVQBTAEUAUgQJAFUAUABEAEEAVABFAEoATwBCBA0AVQBQAEQAQQBUAEUAUABSAE8ARwBSAEEATQQPAFUAUABEAEEAVABFAFQASQBNAEUAUwBUAEEATQBQBBQAdQBwAGQAYQB0AGUALgBpAG4AcAB1AHQASgBEAEIAQwBUAHkAcABlChkADwQGAEIASQBHAEkATgBUBAQAQwBIAEEAUgBaAFoAWgBaAFoAWgBaAFoAWgBaAFoAWgQHAFYAQQBSAEMASABBAFIAWgBaAFoAWgBaBAkAVABJAE0ARQBTAFQAQQBNAFAAWgBaAFoAbQQWAHUAcABkAGEAdABlAC4AaQBuAHAAdQB0AEMAbwBsAHUAbQBuAFQAeQBwAGUKGQAPBA8AQgBJAEcASQBOAFQAIABOAE8AVAAgAE4AVQBMAEwEEABDAEgAQQBSACgAMgApACAATgBPAFQAIABOAFUATABMBBAAQwBIAEEAUgAoADEAKQAgAE4ATwBUACAATgBVAEwATAQRAEMASABBAFIAKAAyADAAKQAgAE4ATwBUACAATgBVAEwATAQRAEMASABBAFIAKAAxADAAKQAgAE4ATwBUACAATgBVAEwATAB2BBEAQwBIAEEAUgAoADEANwApACAATgBPAFQAIABOAFUATABMAHYEEQBDAEgAQQBSACgANAA4ACkAIABOAE8AVAAgAE4AVQBMAEwAdgB9AHYAfQQQAEMASABBAFIAKAAzACkAIABOAE8AVAAgAE4AVQBMAEwEFgBWAEEAUgBDAEgAQQBSACgAMQAwADIANAApACAATgBPAFQAIABOAFUATABMBBEAQwBIAEEAUgAoADMAMAApACAATgBPAFQAIABOAFUATABMAHcAeQB5AHkEEgBUAEkATQBFAFMAVABBAE0AUAAgAE4ATwBUACAATgBVAEwATAB5AHkAeQCJBBIAdQBwAGQAYQB0AGUALgBpAG4AcAB1AHQAQwBvAGwAdQBtAG4KGQAPAD0APgA/AEAAQQBCAEMARABFAEYARwBIAEkASgBLAEwATQBOAE8AUABRAFIAUwBUAFUEEQB1AHAAZABhAHQAZQAuAGUAeABwAHIAZQBzAHMAaQBvAG4KGQAPBAEAPwCtAK0ArQCtAK0ArQCtAK0ArQCtAK0ArQCtAK0ArQCtAK0ArQCtAK0ArQCtAK0ArQQPAHUAcABkAGEAdABlAC4ASgBEAEIAQwBUAHkAcABlChkADwBZAFoAWgBaAFoAWgBaAFoAWgBaAFoAWgBaAFoAZwBaAFoAWgBaAFoAbQBaAFoAWgBtBBEAdQBwAGQAYQB0AGUALgBjAG8AbAB1AG0AbgBUAHkAcABlChkADwB1AHYAdwB4AHkAdgB7AHYAfQB2AH0AdgB9AIIAgwCEAHcAeQB5AHkAiQB5AHkAeQCJBA0AdQBwAGQAYQB0AGUALgBjAG8AbAB1AG0AbgoZAA8APQA+AD8AQABBAEIAQwBEAEUARgBHAEgASQBKAEsATABNAE4ATwBQAFEAUgBTAFQAVQQVAHQAYQBiAGwAZQBzAC4AcgBlAGEAbABTAGMAaABlAG0AYQBOAGEAbQBlCgEADwQHAEYAQgBGAEkATABFAFMEEQB0AGEAYgBsAGUAcwAuAGMAbwBsAHUAbQBuAEkAbgBmAG8KAQAPhAAABIwASQBEAFwAbgBCAEkARwBJAE4AVAAgAE4ATwBUACAATgBVAEwATABcAG4ALQA1AFwAbgAxAFwAbgBcAG4ACgBQAEkAQwBLAFUAUABSAEUAUQBVAEUAUwBUAEkARABcAG4AQgBJAEcASQBOAFQAIABOAE8AVAAgAE4AVQBMAEwAXABuAC0ANQBcAG4AMgBcAG4AXABuAAoARABVAFQASQBBAEIATABFAFMAVABBAFQAVQBTAEMATwBEAEUAXABuAEMASABBAFIAKAAyACkAIABOAE8AVAAgAE4AVQBMAEwAXABuADEAXABuADMAXABuAFwAbgAKAEkATQBQAE8AUgBUAEUAWABQAE8AUgBUAEMATwBEAEUAXABuAEMASABBAFIAKAAxACkAIABOAE8AVAAgAE4AVQBMAEwAXABuADEAXABuADQAXABuAFwAbgAKAEEAUwBTAEkARwBOAEUARABJAEQARQBOAFQASQBGAEkAQwBBAFQASQBPAE4AXABuAEMASABBAFIAKAAyADAAKQAgAE4ATwBUACAATgBVAEwATABcAG4AMQBcAG4ANQBcAG4AXABuAAoAUQBVAEEATgBUAEkAVABZAEkATgBWAE8ASQBDAEUARABcAG4AQwBIAEEAUgAoADEAMAApACAATgBPAFQAIABOAFUATABMAFwAbgAxAFwAbgA2AFwAbgBcAG4ACgBNAEUAQQBTAFUAUgBFAE0ARQBOAFQAQwBPAEQARQBCAEEAUwBJAFMAXABuAEMASABBAFIAKAAyACkAIABOAE8AVAAgAE4AVQBMAEwAXABuADEAXABuADcAXABuAFwAbgAKAFUATgBJAFQAUABSAEkAQwBFAFwAbgBDAEgAQQBSACgAMQA3ACkAIABOAE8AVAAgAE4AVQBMAEwAXABuADEAXABuADgAXABuAFwAbgAKAFAAUgBPAEQAVQBDAFQASQBEAFEAVQBBAEwASQBGAEkARQBSADEAXABuAEMASABBAFIAKAAyACkAIABOAE8AVAAgAE4AVQBMAEwAXABuADEAXABuADkAXABuAFwAbgAKAFAAUgBPAEQAVQBDAFQASQBEADEAXABuAEMASABBAFIAKAA0ADgAKQAgAE4ATwBUACAATgBVAEwATABcAG4AMQBcAG4AMQAwAFwAbgBcAG4ACgBQAFIATwBEAFUAQwBUAEkARABRAFUAQQBMAEkARgBJAEUAUgAyAFwAbgBDAEgAQQBSACgAMgApACAATgBPAFQAIABOAFUATABMAFwAbgAxAFwAbgAxADEAXABuAFwAbgAKAFAAUgBPAEQAVQBDAFQASQBEADIAXABuAEMASABBAFIAKAA0ADgAKQAgAE4ATwBUACAATgBVAEwATABcAG4AMQBcAG4AMQAyAFwAbgBcAG4ACgBQAFIATwBEAFUAQwBUAEkARABRAFUAQQBMAEkARgBJAEUAUgAzAFwAbgBDAEgAQQBSACgAMgApACAATgBPAFQAIABOAFUATABMAFwAbgAxAFwAbgAxADMAXABuAFwAbgAKAFAAUgBPAEQAVQBDAFQASQBEADMAXABuAEMASABBAFIAKAA0ADgAKQAgAE4ATwBUACAATgBVAEwATABcAG4AMQBcAG4AMQA0AFwAbgBcAG4ACgBMAEEARABJAE4ARwBMAEkATgBFAEkAVABFAE0ATgBVAE0AQgBFAFIAXABuAEMASABBAFIAKAAzACkAIABOAE8AVAAgAE4AVQBMAEwAXABuADEAXABuADEANQBcAG4AXABuAAoATABBAEQASQBOAEcARABFAFMAQwBSAEkAUABUAEkATwBOAFwAbgBWAEEAUgBDAEgAQQBSACgAMQAwADIANAApACAATgBPAFQAIABOAFUATABMAFwAbgAxADIAXABuADEANgBcAG4AXABuAAoAQwBPAE0ATQBPAEQASQBUAFkAQwBPAEQARQBcAG4AQwBIAEEAUgAoADMAMAApACAATgBPAFQAIABOAFUATABMAFwAbgAxAFwAbgAxADcAXABuAFwAbgAKAEMATwBNAE0ATwBEAEkAVABZAFEAVQBBAEwASQBGAEkARQBSAFwAbgBDAEgAQQBSACgAMQApACAATgBPAFQAIABOAFUATABMAFwAbgAxAFwAbgAxADgAXABuAFwAbgAKAEMAUgBFAEEAVABFAFUAUwBFAFIAXABuAEMASABBAFIAKAAxADAAKQAgAE4ATwBUACAATgBVAEwATABcAG4AMQBcAG4AMQA5AFwAbgBcAG4ACgBDAFIARQBBAFQARQBKAE8AQgBcAG4AQwBIAEEAUgAoADEAMAApACAATgBPAFQAIABOAFUATABMAFwAbgAxAFwAbgAyADAAXABuAFwAbgAKAEMAUgBFAEEAVABFAFAAUgBPAEcAUgBBAE0AXABuAEMASABBAFIAKAAxADAAKQAgAE4ATwBUACAATgBVAEwATABcAG4AMQBcAG4AMgAxAFwAbgBcAG4ACgBDAFIARQBBAFQARQBUAEkATQBFAFMAVABBAE0AUABcAG4AVABJAE0ARQBTAFQAQQBNAFAAIABOAE8AVAAgAE4AVQBMAEwAXABuADkAMwBcAG4AMgAyAFwAbgBcAG4ACgBVAFAARABBAFQARQBVAFMARQBSAFwAbgBDAEgAQQBSACgAMQAwACkAIABOAE8AVAAgAE4AVQBMAEwAXABuADEAXABuADIAMwBcAG4AXABuAAoAVQBQAEQAQQBUAEUASgBPAEIAXABuAEMASABBAFIAKAAxADAAKQAgAE4ATwBUACAATgBVAEwATABcAG4AMQBcAG4AMgA0AFwAbgBcAG4ACgBVAFAARABBAFQARQBQAFIATwBHAFIAQQBNAFwAbgBDAEgAQQBSACgAMQAwACkAIABOAE8AVAAgAE4AVQBMAEwAXABuADEAXABuADIANQBcAG4AXABuAAoAVQBQAEQAQQBUAEUAVABJAE0ARQBTAFQAQQBNAFAAXABuAFQASQBNAEUAUwBUAEEATQBQACAATgBPAFQAIABOAFUATABMAFwAbgA5ADMAXABuADIANgBcAG4AXABuAAoEEAB0AGEAYgBsAGUAcwAuAHQAYQBiAGwAZQBUAHkAcABlCgEADwQFAFQAQQBCAEwARQQQAHQAYQBiAGwAZQBzAC4AdABhAGIAbABlAE4AYQBtAGUKAQAPBEAARQBEAEkAXwAyADEANQBfAEEATQBBAFoATwBOAF8AQwBPAE0ATQBVAE4ASQBDAEEAVABJAE8ATgBTAF8AQgBBAEMASwBGAEkATABMAF8ARABFAFQAQQBJAEwAXwBJAE4AVABFAFIATgBBAFQASQBPAE4AQQBMAF8ARABBAFQAQQQRAHQAYQBiAGwAZQBzAC4AcwBjAGgAZQBtAGEATgBhAG0AZQoBAA+AAAABHQQSAHQAYQBiAGwAZQBzAC4AYwBhAHQAYQBsAG8AZwBOAGEAbQBlCgEADwQRADwAYwB1AHIAcgBlAG4AdAAgAGMAYQB0AGEAbABvAGcAPgQTAHQAYQBiAGwAZQBzAC4AdABhAGIAbABlAEkAbgBkAGUAeABlAHMKAQAPABsCAAQZAGEAZABhAHAAdABlAHIAUwBlAHIAdgBpAGMAZQBOAG8AZABlAFYAZQByAHMAaQBvAG4LBAAAAAIECwBhAGQAYQBwAHQAZQByAFQAeQBwAGUECwBKAEQAQgBDAEEAZABhAHAAdABlAHIEDwBpAG4AcAB1AHQAUgBlAGMAbwByAGQATgBhAG0AZQQhAGkAbgBzAGUAcgB0ADIAMQA1AEkAbgB0AGUAcgBuAGEAdABpAG8AbgBhAGwARABlAHQAYQBpAGwASQBuAHAAdQB0BBAAbwB1AHQAcAB1AHQAUgBlAGMAbwByAGQATgBhAG0AZQQiAGkAbgBzAGUAcgB0ADIAMQA1AEkAbgB0AGUAcgBuAGEAdABpAG8AbgBhAGwARABlAHQAYQBpAGwATwB1AHQAcAB1AHQCAA==</value>
+</Values>
